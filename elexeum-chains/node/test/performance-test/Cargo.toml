@@ -1,0 +1,21 @@
+[package]
+name = "elexeum-performance-test"
+version = "0.2.1"
+authors = ["Elexeum <info@elexeum.xyz>"]
+edition = "2018"
+
+[dependencies]
+thiserror = "1.0.30"
+quote = "1.0.14"
+env_logger = "0.9"
+log = "0.4"
+
+elexeum-node-core-pvf = { path = "../../../../system-node/core/pvf" }
+elexeum-erasure-coding = { path = "../../../../modules/erasure-coding" }
+elexeum-node-primitives = { path = "../../../../system-node/primitives" }
+
+elexeum-runtime = { path = "../../../runtime/elexeum" }
+
+[[bin]]
+name = "gen-ref-constants"
+path = "src/gen_ref_constants.rs"

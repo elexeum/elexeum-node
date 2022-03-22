@@ -1,0 +1,183 @@
+[package]
+name = "elexeum-service"
+version = "0.2.1"
+authors = ["Elexeum <info@elexeum.xyz>"]
+edition = "2018"  
+
+[dependencies]
+# Substrate Client
+serde_json = "1.0.72"
+sc-authority-discovery = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+babe = { package = "sc-consensus-babe", git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+beefy-primitives = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+beefy-gadget = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+grandpa = { package = "sc-finality-grandpa", git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-block-builder = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-chain-spec = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-client-api = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-client-db = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-consensus-uncles = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-consensus = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-consensus-slots = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-executor = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-network = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-transaction-pool = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-sync-state-rpc = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-keystore = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-basic-authorship = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-offchain = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+service = { package = "sc-service", git = "https://github.com/paritytech/substrate",branch = "polkadot-v0.9.16", default-features = false}
+telemetry = { package = "sc-telemetry", git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+
+# Substrate Primitives
+sp-authority-discovery = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+consensus_common = { package = "sp-consensus", git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+grandpa_primitives = { package = "sp-finality-grandpa", git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+inherents = { package = "sp-inherents", git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-api = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-block-builder = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-blockchain = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-io = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-keystore = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-offchain = { package = "sp-offchain", git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-session = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-storage = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-transaction-pool = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-trie = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-timestamp = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-consensus-babe = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-state-machine = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+
+# Substrate Pallets
+pallet-babe = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+pallet-im-online = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+pallet-staking = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+pallet-transaction-payment-rpc-runtime-api = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+pallet-mmr-primitives = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+
+# Substrate Other
+frame-system-rpc-runtime-api = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+prometheus-endpoint = { package = "substrate-prometheus-endpoint", git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+
+# External Crates
+futures = "0.3.19"
+hex-literal = "0.3.4"
+tracing = "0.1.29"
+serde = { version = "1.0.132", features = ["derive"] }
+thiserror = "1.0.30"
+kvdb = "0.10.0"
+kvdb-rocksdb = { version = "0.14.0", optional = true }
+async-trait = "0.1.52"
+lru = "0.7"
+
+# Elexeum
+elexeum-node-core-parachains-inherent = { path = "../../../system-node/core/parachains-inherent" }
+elexeum-overseer = { path = "../../../system-node/overseer" }
+elexeum-client = { path = "../client", default-features = false, optional = true }
+elexeum-parachain = { path = "../../../modules/parachain" }
+elexeum-primitives = { path = "../../../primitives" }
+elexeum-node-primitives = { path = "../../../system-node/primitives" }
+elexeum-rpc = { path = "../rpc" }
+elexeum-subsystem = { package = "elexeum-node-subsystem", path = "../../../system-node/subsystem" }
+elexeum-node-subsystem-util = { path = "../../../system-node/subsystem-util" }
+elexeum-runtime-parachains = { path = "../../../modules/parachain/runtime" }
+elexeum-node-network-protocol = { path = "../../../system-node/network/protocol" }
+
+# Elexeum Runtime Constants
+elexeum-runtime-constants = { path = "../../runtime/elexeum/constants", optional = true }
+cardamom-runtime-constants = { path = "../../runtime/cardamom/constants", optional = true }
+
+# Elexeum Runtimes
+elexeum-runtime = { path = "../../runtime/elexeum", optional = true }
+cardamom-runtime = { path = "../../runtime/cardamom", optional = true }
+
+# Elexeum Subsystems
+elexeum-approval-distribution = { path = "../../../system-node/network/approval-distribution", optional = true }
+elexeum-availability-bitfield-distribution = { path = "../../../system-node/network/bitfield-distribution", optional = true }
+elexeum-availability-distribution = { path = "../../../system-node/network/availability-distribution", optional = true }
+elexeum-availability-recovery = { path = "../../../system-node/network/availability-recovery", optional = true }
+elexeum-collator-protocol = { path = "../../../system-node/network/collator-protocol", optional = true }
+elexeum-dispute-distribution = { path = "../../../system-node/network/dispute-distribution", optional = true }
+elexeum-gossip-support = { path = "../../../system-node/network/gossip-support", optional = true }
+elexeum-network-bridge = { path = "../../../system-node/network/bridge", optional = true }
+elexeum-node-collation-generation = { path = "../../../system-node/collation-generation", optional = true }
+elexeum-node-core-approval-voting = { path = "../../../system-node/core/approval-voting", optional = true }
+elexeum-node-core-av-store = { path = "../../../system-node/core/av-store", optional = true }
+elexeum-node-core-backing = { path = "../../../system-node/core/backing", optional = true }
+elexeum-node-core-bitfield-signing = { path = "../../../system-node/core/bitfield-signing", optional = true }
+elexeum-node-core-candidate-validation = { path = "../../../system-node/core/candidate-validation", optional = true }
+elexeum-node-core-chain-api = { path = "../../../system-node/core/chain-api", optional = true }
+elexeum-node-core-chain-selection = { path = "../../../system-node/core/chain-selection", optional = true }
+elexeum-node-core-dispute-coordinator = { path = "../../../system-node/core/dispute-coordinator", optional = true }
+elexeum-node-core-provisioner = { path = "../../../system-node/core/provisioner", optional = true }
+elexeum-node-core-pvf-checker = { path = "../../../system-node/core/pvf-checker", optional = true }
+elexeum-node-core-runtime-api = { path = "../../../system-node/core/runtime-api", optional = true }
+elexeum-statement-distribution = { path = "../../../system-node/network/statement-distribution", optional = true }
+
+[dev-dependencies]
+elexeum-test-client = { path = "../test/client" }
+elexeum-node-subsystem-test-helpers = { path = "../../../system-node/subsystem-test-helpers" }
+env_logger = "0.9.0"
+log = "0.4.14"
+assert_matches = "1.5.0"
+
+[features]
+default = ["db", "full-node", "elexeum-native"]
+
+db = [
+	"service/db"
+]
+
+full-node = [
+	"elexeum-node-core-av-store",
+	"elexeum-node-core-approval-voting",
+	"elexeum-availability-bitfield-distribution",
+	"elexeum-availability-distribution",
+	"elexeum-availability-recovery",
+	"elexeum-client",
+	"elexeum-collator-protocol",
+	"elexeum-dispute-distribution",
+	"elexeum-gossip-support",
+	"elexeum-network-bridge",
+	"elexeum-node-collation-generation",
+	"elexeum-node-core-backing",
+	"elexeum-node-core-bitfield-signing",
+	"elexeum-node-core-candidate-validation",
+	"elexeum-node-core-chain-api",
+	"elexeum-node-core-chain-selection",
+	"elexeum-node-core-dispute-coordinator",
+	"elexeum-node-core-provisioner",
+	"elexeum-node-core-runtime-api",
+	"elexeum-statement-distribution",
+	"elexeum-approval-distribution",
+	"elexeum-node-core-pvf-checker",
+	"kvdb-rocksdb"
+]
+
+# Configure the native runtimes to use. elexeum is enabled by default.
+#
+# Validators require the native runtime currently
+elexeum-native = [ "elexeum-runtime", "elexeum-runtime-constants", "elexeum-client/elexeum" ]
+cardamom-native = [ "cardamom-runtime", "cardamom-runtime-constants", "elexeum-client/cardamom" ]
+
+runtime-benchmarks = [
+	"elexeum-runtime/runtime-benchmarks",
+	"cardamom-runtime/runtime-benchmarks",
+]
+try-runtime = [
+	"elexeum-runtime/try-runtime",
+	"cardamom-runtime/try-runtime",
+]
+fast-runtime = [
+	"elexeum-runtime/fast-runtime",
+	"cardamom-runtime/fast-runtime",
+]
+
+runtime-metrics = [
+	"elexeum-client/runtime-metrics",
+	"cardamom-runtime/runtime-metrics",
+	"elexeum-runtime/runtime-metrics",
+	"elexeum-runtime-parachains/runtime-metrics"
+]
