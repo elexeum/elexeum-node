@@ -1,0 +1,33 @@
+[package]
+name = "elexeum-dispute-distribution"
+version = "0.2.1"
+authors = ["Elexeum <info@elexeum.xyz>"]
+edition = "2018"
+
+[dependencies]
+futures = "0.3.19"
+tracing = "0.1.29"
+derive_more = "0.99.17"
+parity-scale-codec = { version = "2.3.1", features = ["std"] }
+elexeum-primitives = { path = "../../../primitives" }
+elexeum-erasure-coding = { path = "../../../modules/erasure-coding" }
+elexeum-subsystem = { package = "elexeum-node-subsystem", path = "../../subsystem" }
+elexeum-node-network-protocol = { path = "../../network/protocol" }
+elexeum-node-subsystem-util = { path = "../../subsystem-util" }
+elexeum-node-primitives = { path = "../../primitives" }
+sc-network = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-application-crypto = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-keystore = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+thiserror = "1.0.30"
+lru = "0.7.2"
+
+[dev-dependencies]
+async-trait = "0.1.52"
+elexeum-subsystem-testhelpers = { package = "elexeum-node-subsystem-test-helpers", path = "../../subsystem-test-helpers" }
+sp-keyring = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-tracing = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-keystore = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+futures-timer = "3.0.2"
+assert_matches = "1.4.0"
+lazy_static = "1.4.0"
+elexeum-primitives-test-helpers = { path = "../../../primitives/test-helpers" }

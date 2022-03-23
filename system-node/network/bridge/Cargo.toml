@@ -1,0 +1,27 @@
+[package]
+name = "elexeum-network-bridge"
+version = "0.2.1"
+authors = ["Elexeum <info@elexeum.xyz>"]
+edition = "2018"
+
+[dependencies]
+async-trait = "0.1.52"
+futures = "0.3.19"
+tracing = "0.1.29"
+elexeum-primitives = { path = "../../../primitives" }
+parity-scale-codec = { version = "2.3.1", default-features = false, features = ["derive"] }
+sc-network = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-consensus = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+elexeum-subsystem = { package = "elexeum-node-subsystem", path = "../../subsystem" }
+elexeum-overseer = { path = "../../overseer" }
+elexeum-node-network-protocol = { path = "../protocol" }
+elexeum-node-subsystem-util = { path = "../../subsystem-util"}
+parking_lot = "0.11.1"
+
+[dev-dependencies]
+assert_matches = "1.4.0"
+elexeum-node-subsystem-test-helpers = { path = "../../subsystem-test-helpers" }
+sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-keyring = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+futures-timer = "3"
+elexeum-primitives-test-helpers = { path = "../../../primitives/test-helpers" }
