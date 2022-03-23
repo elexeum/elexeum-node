@@ -1,0 +1,79 @@
+## Using Docker
+The easiest/faster option to run Elexeum in Docker is to use the latest release images. These are small images that use the latest official release of the Elexeum binary, pulled from our package repository.
+## Option 1
+
+Clone this [script](https://github.com/elexeum/elexeum-node/blob/main/scripts/docker-run-test-node.sh) into your local machine. Then run it as below; 
+
+`sudo sh docker-run-test-node.sh`
+
+Once the node is up. You can Ctr + C to stop it, then run;
+
+`sudo docker restart` {write you container name}. 
+
+Don't forget to delete the `{}`.
+
+
+## Option 2
+A more manual process which you will learn how it is run step by step.
+### Install docker
+To install docker see [here](https://docs.docker.com/engine/install/).
+
+### Run docker
+Let's first check the version we have and pull image from docker image. This takes a bit of time, be patient: 
+
+```bash
+docker pull elexeum-node/elexeum-chain:latest
+```
+
+You can also pass any argument/flag that Elexeum supports:
+
+```bash
+docker run selendrachain/selendra-chain:latest --dev --name "DockerNode"
+```
+
+## Run elexeum node
+
+You can start Elexeum as daemon, exposes the Elexeum ports and mount a volume that will keep your blockchain data locally. Make sure that you set the ownership of your local directory to the Elexeum user that is used by the container. Set user id 1000 and group id 1000, by running `chown 1000.1000 /my/local/folder -R` if you use a bind mount.
+
+To start a Selendra node on default rpc port 9933 and default p2p port 30333 use the following command. If you want to connect to rpc port 9933 and wss port 9944, then must add Selendra startup parameter: `--rpc-external`, `-ws-external`.
+
+Run docker node
+
+```bash
+docker run \
+-d \
+-p 30333:30333 \
+-p 9933:9933 \
+-p 9944:9944 \
+-v /my/local/folder:/elexeum/data/testnet \
+--name testnet \
+elexeum-node/elexeum-chain:latest \
+--base-path elexeum/data/testnet \
+--chain elexeum \
+--rpc-external \
+--ws-external \
+--rpc-cors all \
+--name "Dockernode" \ 
+--pruning=archive
+```
+**_If you want to operate it on the internet. Do not expose RPC and WS ports, if they are not correctly configured._**
+
+Insert key to elexeum node
+
+```bash
+docker exec -it testnet elexeum key insert \
+--base-path elexeum/data/testnet \
+--chain elexeum \
+--suri <Private key> \
+--password-interactive \
+--key-type babe \
+--scheme Sr25519
+
+docker exec -it testnet elexeum key insert \
+--base-path elexeum/data/testnet \
+--chain elexeum \
+--suri <Private key> \
+--password-interactive \
+--key-type gran \
+--scheme ed25519
+```
