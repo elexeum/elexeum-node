@@ -1,0 +1,11 @@
+[package]
+name = "elexeum-node-subsystem"
+version = "0.2.1"
+authors = ["Elexeum <info@elexeum.xyz>"]
+edition = "2018"
+description = "Subsystem traits and message definitions and the generated overseer"
+
+[dependencies]
+elexeum-overseer = { path = "../overseer" }
+elexeum-node-subsystem-types = { path = "../subsystem-types" }
+elexeum-node-jaeger = { path = "../jaeger" }
