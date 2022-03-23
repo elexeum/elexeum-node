@@ -1,0 +1,14 @@
+[package]
+name = "elexeum-erasure-coding"
+version = "0.2.1"
+authors = ["Elexeum <info@elexeum.xyz>"]
+edition = "2018"
+
+[dependencies]
+elexeum-primitives = { path = "../../primitives" }
+elexeum-node-primitives = { package = "elexeum-node-primitives", path = "../../system-node/primitives" }
+novelpoly = { package = "reed-solomon-novelpoly", version = "1.0.0" }
+parity-scale-codec = { version = "2.3.1", default-features = false, features = ["std", "derive"] }
+sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+trie = { package = "sp-trie", git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+thiserror = "1.0.30"
