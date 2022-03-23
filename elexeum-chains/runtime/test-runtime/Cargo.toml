@@ -1,9 +1,9 @@
 [package]
 name = "elexeum-test-runtime"
 version = "0.2.1"
-authors = ["Elexeum <info@elexeum.org>"]
+authors = ["Elexeum <info@elexeum.xyz>"]
 edition = "2018"
-build = "build.rs"  
+build = "build.rs"
 
 [dependencies]
 bitvec = { version = "0.20.1", default-features = false, features = ["alloc"] }

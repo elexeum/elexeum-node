@@ -12,9 +12,9 @@
 // GNU General Public License for more details.
 
 // You should have received a copy of the GNU General Public License
-// along with Polkadot. If not, see <http://www.gnu.org/licenses/>.  
+// along with Polkadot. If not, see <http://www.gnu.org/licenses/>.
 
-//! The elexeum runtime. This can be compiled with `#[no_std]`, ready for Wasm.
+//! The Elexeum runtime. This can be compiled with `#[no_std]`, ready for Wasm.  
 
 #![cfg_attr(not(feature = "std"), no_std)]
 // `construct_runtime!` does a lot of recursion and requires us to increase the limit to 256.
@@ -1699,7 +1699,7 @@ sp_api::impl_runtime_apis! {
 
 			let mut list = Vec::<BenchmarkList>::new();
 
-			// elexeum
+			// Elexeum
 			list_benchmark!(list, extra, runtime_common::slots, Slots);
 			list_benchmark!(list, extra, runtime_common::paras_registrar, Registrar);
 			list_benchmark!(list, extra, runtime_parachains::configuration, Configuration);
@@ -1773,7 +1773,7 @@ sp_api::impl_runtime_apis! {
 
 			let mut batches = Vec::<BenchmarkBatch>::new();
 			let params = (&config, &whitelist);
-			// elexeum
+			// Elexeum
 			add_benchmark!(params, batches, runtime_common::slots, Slots);
 			add_benchmark!(params, batches, runtime_common::paras_registrar, Registrar);
 			add_benchmark!(params, batches, runtime_parachains::configuration, Configuration);
