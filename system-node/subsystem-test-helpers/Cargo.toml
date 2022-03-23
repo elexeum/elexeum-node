@@ -1,0 +1,22 @@
+[package]
+name = "elexeum-node-subsystem-test-helpers"
+version = "0.2.1"
+authors = ["Elexeum <info@elexeum.xyz>"]
+edition = "2018"
+description = "Subsystem traits and message definitions"
+
+[dependencies]
+async-trait = "0.1.52"
+futures = "0.3.19"
+parking_lot = "0.11.1"
+elexeum-node-subsystem = { path = "../subsystem" }
+elexeum-node-subsystem-util = { path = "../subsystem-util" }
+elexeum-primitives = { path = "../../primitives" }
+sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-keystore = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-keystore = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-keyring = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-application-crypto = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+
+[dev-dependencies]
+elexeum-overseer = { path = "../overseer" }
