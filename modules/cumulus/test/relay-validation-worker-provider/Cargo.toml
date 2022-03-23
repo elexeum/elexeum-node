@@ -1,0 +1,9 @@
+[package]
+name = "cumulus-test-relay-validation-worker-provider"
+version = "0.1.0"
+authors = ["Elexeum <info@elexeum.xyz>"]
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+elexeum-node-core-pvf = { path = "../../../../system-node/core/pvf" }
