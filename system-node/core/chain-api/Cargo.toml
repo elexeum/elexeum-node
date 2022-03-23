@@ -1,0 +1,23 @@
+[package]
+name = "elexeum-node-core-chain-api"
+version = "0.2.1"
+authors = ["Elexeum <info@elexeum.xyz>"]
+edition = "2018"
+
+[dependencies]
+futures = "0.3.19"
+tracing = "0.1.29"
+sp-blockchain = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+elexeum-primitives = { path = "../../../primitives" }
+elexeum-subsystem = { package = "elexeum-node-subsystem", path = "../../subsystem" }
+elexeum-node-subsystem-util = { path = "../../subsystem-util" }
+sc-client-api = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-consensus-babe = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+
+[dev-dependencies]
+futures = { version = "0.3.19", features = ["thread-pool"] }
+maplit = "1.0.2"
+parity-scale-codec = "2.3.1"
+elexeum-node-primitives = { path = "../../primitives" }
+elexeum-node-subsystem-test-helpers = { path = "../../subsystem-test-helpers" }
+sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }

@@ -1,0 +1,28 @@
+[package]
+name = "elexeum-node-core-pvf-checker"
+version = "0.2.1"
+authors = ["Elexeum <info@elexeum.xyz>"]
+edition = "2018"
+
+[dependencies]
+futures = "0.3.17"
+thiserror = "1.0.30"
+tracing = "0.1.29"
+
+elexeum-node-primitives = { path = "../../primitives" }
+elexeum-node-subsystem = { path = "../../subsystem" }
+elexeum-primitives = { path = "../../../primitives" }
+elexeum-node-subsystem-util = { path = "../../subsystem-util" }
+elexeum-overseer = { path = "../../overseer" }
+
+sp-keystore = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+
+[dev-dependencies]
+sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sc-keystore = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+sp-keyring = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+elexeum-node-subsystem-test-helpers = { path = "../../subsystem-test-helpers"}
+test-helpers = { package = "elexeum-primitives-test-helpers", path = "../../../primitives/test-helpers" }
+sp-application-crypto = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+futures-timer = "3.0.2"

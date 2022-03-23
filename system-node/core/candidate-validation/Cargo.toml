@@ -1,0 +1,30 @@
+[package]
+name = "elexeum-node-core-candidate-validation"
+version = "0.2.1"
+authors = ["Elexeum <info@elexeum.xyz>"]
+edition = "2018"
+
+[dependencies]
+async-trait = "0.1.52"
+futures = "0.3.19"
+tracing = "0.1.29"
+
+sp-maybe-compressed-blob = { package = "sp-maybe-compressed-blob", git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+parity-scale-codec = { version = "2.3.1", default-features = false, features = ["bit-vec", "derive"] }
+
+elexeum-primitives = { path = "../../../primitives" }
+elexeum-parachain = { path = "../../../modules/parachain" }
+elexeum-node-primitives = { path = "../../primitives" }
+elexeum-node-subsystem = { package = "elexeum-node-subsystem", path = "../../subsystem" }
+elexeum-node-subsystem-util = { path = "../../subsystem-util" }
+
+[target.'cfg(not(any(target_os = "android", target_os = "unknown")))'.dependencies]
+elexeum-node-core-pvf = { path = "../pvf" }
+
+[dev-dependencies]
+sp-keyring = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+futures = { version = "0.3.19", features = ["thread-pool"] }
+assert_matches = "1.4.0"
+elexeum-node-subsystem-test-helpers = { path = "../../subsystem-test-helpers" }
+sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+test-helpers = { package = "elexeum-primitives-test-helpers", path = "../../../primitives/test-helpers" }

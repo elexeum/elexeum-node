@@ -1,0 +1,19 @@
+[package]
+name = "elexeum-node-core-bitfield-signing"
+version = "0.2.1"
+authors = ["Elexeum <info@elexeum.xyz>"]
+edition = "2018"
+
+[dependencies]
+futures = "0.3.19"
+tracing = "0.1.29"
+elexeum-primitives = { path = "../../../primitives" }
+elexeum-node-subsystem = { path = "../../subsystem" }
+elexeum-node-subsystem-util = { path = "../../subsystem-util" }
+sp-keystore = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.16" }
+wasm-timer = "0.2.5"
+thiserror = "1.0.30"
+
+[dev-dependencies]
+elexeum-node-subsystem-test-helpers = { path = "../../subsystem-test-helpers" }
+test-helpers = { package = "elexeum-primitives-test-helpers", path = "../../../primitives/test-helpers" }
