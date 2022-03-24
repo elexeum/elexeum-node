@@ -1,10 +1,10 @@
 # elexeum-node
 
-#### Elexeum is multi-blockchain nominated proof-of-stake built on top of Substrate 
+##### Elexeum is multi-blockchain nominated proof-of-stake built on top of Substrate 
 
-## Build and Run From Source 
+### Build and Run From Source 
 
-#### Setup eviroment for build Elexeum
+##### Setup eviroment for build Elexeum
 Install the necessary dependencies for compiling and running the Elexeum node software.
 #### For Debian
 ```
