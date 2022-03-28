@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Polkadot.  If not, see <http://www.gnu.org/licenses/>.
 
-//! Elexeum chain configurations.  
+//! Elexeum chain configurations.    
 
 use beefy_primitives::crypto::AuthorityId as BeefyId;
 use grandpa::AuthorityId as GrandpaId;
@@ -29,7 +29,7 @@ use sp_core::{sr25519, Pair, Public};
 use sp_runtime::{traits::IdentifyAccount, Perbill};
 use telemetry::TelemetryEndpoints;
 
-const DEFAULT_PROTOCOL_ID: &str = "sel";
+const DEFAULT_PROTOCOL_ID: &str = "zaryn";
 
 /// Node `ChainSpec` extensions.
 ///
@@ -181,7 +181,7 @@ fn testnet_accounts() -> Vec<AccountId> {
 #[cfg(feature = "elexeum-native")]
 use elexeum_runtime as elexeum;
 #[cfg(feature = "elexeum-native")]
-use elexeum_runtime_constants::currency::UNITS as SEL;
+use elexeum_runtime_constants::currency::UNITS as ZARYN;
 
 #[cfg(feature = "elexeum-native")]
 const ELEXEUM_STAGING_TELEMETRY_URL: &str = "wss://telemetry.polkadot.io/submit/";
@@ -337,8 +337,8 @@ fn elexeum_staging_testnet_config_genesis(wasm_binary: &[u8]) -> elexeum::Genesi
 		),
 	];
 
-	const ENDOWMENT: u128 = 1570796325 * SEL;
-	const STASH: u128 = 31416 * SEL;
+	const ENDOWMENT: u128 = 1570796325 * ZARYN;
+	const STASH: u128 = 31416 * ZARYN;
 
 	elexeum::GenesisConfig {
 		system: elexeum::SystemConfig { code: wasm_binary.to_vec() },
@@ -378,7 +378,7 @@ fn elexeum_staging_testnet_config_genesis(wasm_binary: &[u8]) -> elexeum::Genesi
 				.collect(),
 			invulnerables: initial_authorities.iter().map(|x| x.0.clone()).collect(),
 			slash_reward_fraction: Perbill::from_percent(10),
-			min_nominator_bond: 314 * SEL,
+			min_nominator_bond: 314 * ZARYN,
 			min_validator_bond: STASH,
 			..Default::default()
 		},
@@ -429,7 +429,7 @@ pub fn elexeum_staging_testnet_config() -> Result<ElexeumChainSpec, String> {
 			serde_json::from_str(
 				"{
             \"tokenDecimals\": 18,
-            \"tokenSymbol\": \"SEL\"
+            \"tokenSymbol\": \"ZARYN\"
         	}",
 			)
 			.expect("Provided valid json map"),
@@ -458,8 +458,8 @@ pub fn elexeum_testnet_genesis(
 ) -> elexeum::GenesisConfig {
 	let endowed_accounts: Vec<AccountId> = endowed_accounts.unwrap_or_else(testnet_accounts);
 
-	const ENDOWMENT: u128 = 500000 * SEL;
-	const STASH: u128 = 31416 * SEL;
+	const ENDOWMENT: u128 = 500000 * ZARYN;
+	const STASH: u128 = 31416 * ZARYN;
 
 	elexeum::GenesisConfig {
 		system: elexeum::SystemConfig { code: wasm_binary.to_vec() },
@@ -495,7 +495,7 @@ pub fn elexeum_testnet_genesis(
 				.collect(),
 			invulnerables: initial_authorities.iter().map(|x| x.0.clone()).collect(),
 			slash_reward_fraction: Perbill::from_percent(10),
-			min_nominator_bond: 314 * SEL,
+			min_nominator_bond: 314 * ZARYN,
 			min_validator_bond: STASH,
 			..Default::default()
 		},
@@ -553,7 +553,7 @@ pub fn elexeum_development_config() -> Result<ElexeumChainSpec, String> {
 			serde_json::from_str(
 				"{
             \"tokenDecimals\": 18,
-            \"tokenSymbol\": \"SEL\"
+            \"tokenSymbol\": \"ZARYN\"
         	}",
 			)
 			.expect("Provided valid json map"),
@@ -593,7 +593,7 @@ pub fn elexeum_local_testnet_config() -> Result<ElexeumChainSpec, String> {
 			serde_json::from_str(
 				"{
             \"tokenDecimals\": 18,
-            \"tokenSymbol\": \"SEL\"
+            \"tokenSymbol\": \"ZARYN\"
         	}",
 			)
 			.expect("Provided valid json map"),

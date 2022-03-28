@@ -1,5 +1,5 @@
 {
-  "name": "Elexeum",
+  "name": "Elexeum",  
   "id": "elexeum",
   "chainType": "Live",  
   "bootNodes": [
@@ -19,10 +19,10 @@
       0
     ]
   ],
-  "protocolId": "sel",
+  "protocolId": "zaryn",
   "properties": {
     "tokenDecimals": 18,
-    "tokenSymbol": "SEL"
+    "tokenSymbol": "ZARYN"
   },
   "forkBlocks": null,
   "badBlocks": null,

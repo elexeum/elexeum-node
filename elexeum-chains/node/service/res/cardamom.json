@@ -8,11 +8,11 @@
   ],
   "telemetryEndpoints": [
     [
-      "/dns/telemetry.polkadot.io/tcp/443/x-parity-wss/%2Fsubmit%2F",
+      "/dns/telemetry.polkadot.io/tcp/443/x-parity-wss/%2Fsubmit%2F",  
       0
     ]
   ],
-  "protocolId": "sel",
+  "protocolId": "zaryn",
   "forkId": null,
   "properties": {
     "tokenDecimals": 18,

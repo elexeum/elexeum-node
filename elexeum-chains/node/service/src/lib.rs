@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Polkadot.  If not, see <http://www.gnu.org/licenses/>.
 
-//! Elexeum service. Specialized wrapper over substrate service.  
+//! Elexeum service. Specialized wrapper over substrate service.
 
 #![deny(unused_results)]
 

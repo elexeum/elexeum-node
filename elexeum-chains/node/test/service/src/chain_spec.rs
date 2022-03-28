@@ -28,7 +28,7 @@ use sp_core::sr25519;
 use sp_runtime::Perbill;
 use test_runtime_constants::currency::DOTS;
 
-const DEFAULT_PROTOCOL_ID: &str = "sel";
+const DEFAULT_PROTOCOL_ID: &str = "zaryn";
 
 /// The `ChainSpec` parameterized for elexeum test runtime.
 pub type ElexeumChainSpec =
