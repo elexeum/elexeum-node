@@ -1,6 +1,6 @@
 FROM rust:buster as builder
 
-WORKDIR /elexeum
+WORKDIR /elexeum  
 COPY . /elexeum
 
 RUN rustup default nightly-2021-11-07 && \
@@ -23,10 +23,10 @@ LABEL description="Docker image for Elexeum Chain" \
 	io.parity.image.authors="nath@elexeum.xyz" \
 	io.parity.image.vendor="Elexeum" \
 	io.parity.image.description="Elexeum: elexeum chain" \
-	io.parity.image.source="https://github.com/elexeum/elexeum-node/blob/${VCS_REF}/scripts/docker/selendra.Dockerfile" \
+	io.parity.image.source="https://github.com/elexeum/elexeum-node/blob/${VCS_REF}/scripts/docker/elexeum.Dockerfile" \
 	io.parity.image.documentation="https://github.com/elexeum/elexeum-node"
 
-COPY --from=builder /selendra/target/release/elexeum /usr/local/bin
+COPY --from=builder /elexeum/target/release/elexeum /usr/local/bin
 
 RUN useradd -m -u 1000 -U -s /bin/sh -d /elexeum elexeum && \
 	mkdir -p /data /elexeum/.local/share && \
