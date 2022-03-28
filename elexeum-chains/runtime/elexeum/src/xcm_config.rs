@@ -37,10 +37,10 @@ use xcm_builder::{
 };
 
 parameter_types! {
-	/// The location of the SEL token, from the context of this chain. Since this token is native to this
+	/// The location of the ZARYN token, from the context of this chain. Since this token is native to this
 	/// chain, we make it synonymous with it and thus it is the `Here` location, which means "equivalent to
 	/// the context".
-	pub const SelLocation: MultiLocation = Here.into();
+	pub const ZarynLocation: MultiLocation = Here.into();
 	/// The Elexeum network ID. This is named.
 	pub const ElexeumNetwork: NetworkId = NetworkId::Elexeum;
 	/// Our XCM location ancestry - i.e. what, if anything, `Parent` means evaluated in our context. Since
@@ -62,12 +62,12 @@ pub type SovereignAccountOf = (
 /// Our asset transactor. This is what allows us to interest with the runtime facilities from the point of
 /// view of XCM-only concepts like `MultiLocation` and `MultiAsset`.
 ///
-/// Ours is only aware of the Balances pallet, which is mapped to `SelLocation`.
+/// Ours is only aware of the Balances pallet, which is mapped to `ZarynLocation`.
 pub type LocalAssetTransactor = XcmCurrencyAdapter<
 	// Use this currency:
 	Balances,
 	// Use this currency when it is a fungible asset matching the given location or name:
-	IsConcrete<SelLocation>,
+	IsConcrete<ZarynLocation>,
 	// We can convert the MultiLocations with our converter above:
 	SovereignAccountOf,
 	// Our chain's account ID type (we can't get away without mentioning it explicitly):
@@ -104,7 +104,7 @@ pub type XcmRouter = (
 );
 
 parameter_types! {
-	pub const Elexeum: MultiAssetFilter = Wild(AllOf { fun: WildFungible, id: Concrete(SelLocation::get()) });
+	pub const Elexeum: MultiAssetFilter = Wild(AllOf { fun: WildFungible, id: Concrete(ZarynLocation::get()) });
 	pub const ElexeumForIndracore: (MultiAssetFilter, MultiLocation) = (Elexeum::get(), Parachain(1000).into());
 }
 pub type TrustedTeleporters = (xcm_builder::Case<ElexeumForIndracore>,);
@@ -141,7 +141,7 @@ impl xcm_executor::Config for XcmConfig {
 	type Barrier = Barrier;
 	type Weigher = FixedWeightBounds<BaseXcmWeight, Call, MaxInstructions>;
 	// The weight trader piggybacks on the existing transaction-fee conversion logic.
-	type Trader = UsingComponents<WeightToFee, SelLocation, AccountId, Balances, ToAuthor<Runtime>>;
+	type Trader = UsingComponents<WeightToFee, ZarynLocation, AccountId, Balances, ToAuthor<Runtime>>;
 	type ResponseHandler = XcmPallet;
 	type AssetTrap = XcmPallet;
 	type AssetClaims = XcmPallet;

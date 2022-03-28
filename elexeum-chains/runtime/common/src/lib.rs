@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Polkadot.  If not, see <http://www.gnu.org/licenses/>.
 
-//! Common runtime code for elexeum and elexeum.
+//! Common runtime code for elexeum and elexeum.  
 
 #![cfg_attr(not(feature = "std"), no_std)]
 
@@ -193,7 +193,7 @@ impl pallet_staking::BenchmarkingConfig for StakingBenchmarkingConfig {
 /// ```Rust
 /// parameter_types! {
 /// 	// Note that the env variable version parameter cannot be const.
-/// 	pub LaunchPeriod: BlockNumber = prod_or_fast!(7 * DAYS, 1, "SEL_LAUNCH_PERIOD");
+/// 	pub LaunchPeriod: BlockNumber = prod_or_fast!(7 * DAYS, 1, "ZARYN_LAUNCH_PERIOD");
 /// 	pub const VotingPeriod: BlockNumber = prod_or_fast!(7 * DAYS, 1 * MINUTES);
 /// }
 #[macro_export]
