@@ -12,7 +12,7 @@
 // GNU General Public License for more details.
 
 // You should have received a copy of the GNU General Public License
-// along with Polkadot.  If not, see <http://www.gnu.org/licenses/>.  
+// along with Polkadot.  If not, see <http://www.gnu.org/licenses/>.   
 
 use frame_support::{
 	construct_runtime, parameter_types,
@@ -114,7 +114,7 @@ impl configuration::Config for Runtime {
 
 // aims to closely emulate the Elexeum XcmConfig
 parameter_types! {
-	pub const SelLocation: MultiLocation = MultiLocation::here();
+	pub const ZarynLocation: MultiLocation = MultiLocation::here();
 	pub const ElexeumNetwork: NetworkId = NetworkId::Elexeum;
 	pub Ancestry: MultiLocation = Here.into();
 	pub CheckAccount: AccountId = XcmPallet::check_account();
@@ -125,7 +125,7 @@ pub type SovereignAccountOf =
 
 pub type LocalAssetTransactor = XcmCurrencyAdapter<
 	Balances,
-	IsConcrete<SelLocation>,
+	IsConcrete<ZarynLocation>,
 	SovereignAccountOf,
 	AccountId,
 	CheckAccount,
@@ -140,7 +140,7 @@ type LocalOriginConverter = (
 
 parameter_types! {
 	pub const BaseXcmWeight: Weight = 1_000_000_000;
-	pub SelPerSecond: (AssetId, u128) = (SelLocation::get().into(), 1);
+	pub ZarynPerSecond: (AssetId, u128) = (ZarynLocation::get().into(), 1);
 }
 
 pub type Barrier = (
@@ -168,7 +168,7 @@ impl xcm_executor::Config for XcmConfig {
 	type LocationInverter = LocationInverter<Ancestry>;
 	type Barrier = Barrier;
 	type Weigher = FixedWeightBounds<BaseXcmWeight, Call, MaxInstructions>;
-	type Trader = FixedRateOfFungible<SelPerSecond, ()>;
+	type Trader = FixedRateOfFungible<ZarynPerSecond, ()>;
 	type ResponseHandler = XcmPallet;
 	type AssetTrap = XcmPallet;
 	type AssetClaims = XcmPallet;

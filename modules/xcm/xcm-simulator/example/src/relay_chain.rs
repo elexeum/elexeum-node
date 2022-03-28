@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Polkadot.  If not, see <http://www.gnu.org/licenses/>.  
 
-//! Relay chain runtime mock.
+//! Relay chain runtime mock.   
 
 use frame_support::{
 	construct_runtime, parameter_types,
@@ -94,7 +94,7 @@ impl configuration::Config for Runtime {
 }
 
 parameter_types! {
-	pub const SelLocation: MultiLocation = Here.into();
+	pub const ZarynLocation: MultiLocation = Here.into();
 	pub const ElexeumNetwork: NetworkId = NetworkId::Elexeum;
 	pub const AnyNetwork: NetworkId = NetworkId::Any;
 	pub Ancestry: MultiLocation = Here.into();
@@ -105,7 +105,7 @@ pub type SovereignAccountOf =
 	(ChildParachainConvertsVia<ParaId, AccountId>, AccountId32Aliases<ElexeumNetwork, AccountId>);
 
 pub type LocalAssetTransactor =
-	XcmCurrencyAdapter<Balances, IsConcrete<SelLocation>, SovereignAccountOf, AccountId, ()>;
+	XcmCurrencyAdapter<Balances, IsConcrete<ZarynLocation>, SovereignAccountOf, AccountId, ()>;
 
 type LocalOriginConverter = (
 	SovereignSignedViaLocation<SovereignAccountOf, Origin>,
@@ -116,7 +116,7 @@ type LocalOriginConverter = (
 
 parameter_types! {
 	pub const BaseXcmWeight: Weight = 1_000;
-	pub SelPerSecond: (AssetId, u128) = (Concrete(SelLocation::get()), 1);
+	pub ZarynPerSecond: (AssetId, u128) = (Concrete(ZarynLocation::get()), 1);
 	pub const MaxInstructions: u32 = 100;
 }
 
@@ -134,7 +134,7 @@ impl Config for XcmConfig {
 	type LocationInverter = LocationInverter<Ancestry>;
 	type Barrier = Barrier;
 	type Weigher = FixedWeightBounds<BaseXcmWeight, Call, MaxInstructions>;
-	type Trader = FixedRateOfFungible<SelPerSecond, ()>;
+	type Trader = FixedRateOfFungible<ZarynPerSecond, ()>;
 	type ResponseHandler = ();
 	type AssetTrap = ();
 	type AssetClaims = ();

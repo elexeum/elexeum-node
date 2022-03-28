@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Polkadot.  If not, see <http://www.gnu.org/licenses/>.  
 
-//! Parachain runtime mock.
+//! Parachain runtime mock.  
 
 use codec::{Decode, Encode};
 use frame_support::{
@@ -102,7 +102,7 @@ parameter_types! {
 }
 
 parameter_types! {
-	pub const SelLocation: MultiLocation = MultiLocation::parent();
+	pub const ZarynLocation: MultiLocation = MultiLocation::parent();
 	pub const RelayNetwork: NetworkId = NetworkId::Elexeum;
 	pub Ancestry: MultiLocation = Parachain(MsgQueue::parachain_id().into()).into();
 }
@@ -121,12 +121,12 @@ pub type XcmOriginToCallOrigin = (
 
 parameter_types! {
 	pub const UnitWeightCost: Weight = 1;
-	pub SelPerSecond: (AssetId, u128) = (Concrete(Parent.into()), 1);
+	pub ZarynPerSecond: (AssetId, u128) = (Concrete(Parent.into()), 1);
 	pub const MaxInstructions: u32 = 100;
 }
 
 pub type LocalAssetTransactor =
-	XcmCurrencyAdapter<Balances, IsConcrete<SelLocation>, LocationToAccountId, AccountId, ()>;
+	XcmCurrencyAdapter<Balances, IsConcrete<ZarynLocation>, LocationToAccountId, AccountId, ()>;
 
 pub type XcmRouter = super::ParachainXcmRouter<MsgQueue>;
 pub type Barrier = AllowUnpaidExecutionFrom<Everything>;
@@ -142,7 +142,7 @@ impl Config for XcmConfig {
 	type LocationInverter = LocationInverter<Ancestry>;
 	type Barrier = Barrier;
 	type Weigher = FixedWeightBounds<UnitWeightCost, Call, MaxInstructions>;
-	type Trader = FixedRateOfFungible<SelPerSecond, ()>;
+	type Trader = FixedRateOfFungible<ZarynPerSecond, ()>;
 	type ResponseHandler = ();
 	type AssetTrap = ();
 	type AssetClaims = ();

@@ -156,11 +156,11 @@ fn query_holding_works() {
 }
 
 /// Scenario:
-/// A parachain wants to move SEL from Elexeum to Indracore.
+/// A parachain wants to move ZARYN from Elexeum to Indracore.
 /// The parachain sends an XCM to withdraw funds combined with a teleport to the destination.
 ///
 /// This way of moving funds from a relay to a parachain will only work for trusted chains.
-/// Reserve based transfer should be used to move SEL to a community parachain.
+/// Reserve based transfer should be used to move ZARYN to a community parachain.
 ///
 /// Asserts that the balances are updated accordingly and the correct XCM is sent.
 #[test]
@@ -248,7 +248,7 @@ fn teleport_to_indracore_works() {
 }
 
 /// Scenario:
-/// A parachain wants to move SEL from Elexeum to the parachain.
+/// A parachain wants to move ZARYN from Elexeum to the parachain.
 /// It withdraws funds and then deposits them into the reserve account of the destination chain.
 /// to the destination.
 ///
