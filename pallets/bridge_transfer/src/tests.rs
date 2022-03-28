@@ -1,6 +1,6 @@
 #![cfg(test)]
 
-use super::{
+use super::{   
 	bridge,
 	mock::{
 		assert_events, balances, expect_event, new_test_ext, Balances, Bridge, BridgeTransfer,
@@ -22,7 +22,7 @@ fn make_transfer_proposal(to: u64, amount: u64) -> Call {
 
 #[test]
 fn constant_equality() {
-	let r_id = bridge::derive_resource_id(1, &bridge::hashing::blake2_128(b"SEL"));
+	let r_id = bridge::derive_resource_id(1, &bridge::hashing::blake2_128(b"ZARYN"));
 	let encoded: [u8; 32] =
 		hex!("00000000000000000000000000000063a7e2be78898ba83824b0c0cc8dfb6001");
 	assert_eq!(r_id, encoded);

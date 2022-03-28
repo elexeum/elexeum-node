@@ -1,4 +1,4 @@
-// Ensure we're `no_std` when compiling for Wasm.
+// Ensure we're `no_std` when compiling for Wasm. 
 #![cfg_attr(not(feature = "std"), no_std)]
 
 #[cfg(test)]
@@ -307,7 +307,7 @@ pub mod pallet {
 			}
 
 			if rid == T::NativeTokenResourceId::get() {
-				// ERC20 SEL transfer
+				// ERC20 ZARYN transfer
 				<T as Config>::Currency::transfer(
 					&source,
 					&to,
